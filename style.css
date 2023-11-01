@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 3em;
+    margin:0.5%;
+    margin-left: 5%;
+    position: relative;
+    top: 10%;
+    height:fit-content;
+}
+
+h1 {
+    font-size: 6em;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width:fit-content;
+    padding: 1%;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10%;
+}
+
+h3 {
+    font-size: 2em;
+    margin:0;
+    margin-left: 6%;
+    margin-top: 6%;
+}
+
+#siteContainer {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(201, 201, 201);
+    padding: 1%;
+}
+
+#KeyboardContainer {
+    display: flex;
+    width: 90%;
+    background-color: rgb(250, 235, 215);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.cell {
+    background-color: rgb(255, 228, 196);
+    border-radius: 5%;
+    width: 12%;
+    aspect-ratio: 1/1;
+    margin: 0.5%;
+}
+
+.halfcell {
+    background-color: rgb(255, 228, 196);
+    border-radius: 0.5%;
+    width: 7%;
+    aspect-ratio: 2/1;
+}
