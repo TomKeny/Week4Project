@@ -16,304 +16,88 @@ const cells = document.getElementsByClassName("cell")
 const whiteKeys = document.getElementsByClassName("white")
 const blackKeys = document.getElementsByClassName("inner")
 
-let Adown = false
-let Bdown = false
-let Cdown = false
-let Ddown = false
-let Edown = false
-let Fdown = false
-let Gdown = false
+const keys = []
 
-let Abdown = false
-let Bbdown = false
-let Dbdown = false
-let Ebdown = false
-let Gbdown = false
+for (let i = 0; i < (whiteKeys.length + blackKeys.length); i++) {
+    if (i < 7) {
+        keys[i] = whiteKeys[i]
+    }
+    else {
+        keys[i] = blackKeys[i % 7]
+    }
+}
 
-window.addEventListener('keydown', function (e) {
-    if (e.code == "KeyH" && Adown == false) {
-        A.cloneNode().play()
-        Adown = true
-        cells[12].style.backgroundColor = "rgb(211, 190, 164)";
-        whiteKeys[5].style.backgroundColor = "rgb(182, 182, 182)";
-    }
-    else if (e.code == "KeyJ" && Bdown == false) {
-        B.cloneNode().play()
-        Bdown = true
-        cells[13].style.backgroundColor = "rgb(211, 190, 164)";
-        whiteKeys[6].style.backgroundColor = "rgb(182, 182, 182)";
-    }
-    else if (e.code == "KeyA" && Cdown == false) {
-        C.cloneNode().play()
-        Cdown = true
-        cells[7].style.backgroundColor = "rgb(211, 190, 164)";
-        whiteKeys[0].style.backgroundColor = "rgb(182, 182, 182)";
-    }
-    else if (e.code == "KeyS" && Ddown == false) {
-        D.cloneNode().play()
-        Ddown = true
-        cells[8].style.backgroundColor = "rgb(211, 190, 164)";
-        whiteKeys[1].style.backgroundColor = "rgb(182, 182, 182)";
-    }
-    else if (e.code == "KeyD" && Edown == false) {
-        E.cloneNode().play()
-        Edown = true
-        cells[9].style.backgroundColor = "rgb(211, 190, 164)";
-        whiteKeys[2].style.backgroundColor = "rgb(182, 182, 182)";
-    }
-    else if (e.code == "KeyF" && Fdown == false) {
-        F.cloneNode().play()
-        Fdown = true
-        cells[10].style.backgroundColor = "rgb(211, 190, 164)";
-        whiteKeys[3].style.backgroundColor = "rgb(182, 182, 182)";
-    }
-    else if (e.code == "KeyG" && Gdown == false) {
-        G.cloneNode().play()
-        Gdown = true
-        cells[11].style.backgroundColor = "rgb(211, 190, 164)";
-        whiteKeys[4].style.backgroundColor = "rgb(182, 182, 182)";
-    }
+let cellColor = "rgb(255, 228, 196)";
+let cellPressed = "rgb(211, 190, 164)";
 
-    else if (e.code == "KeyY" && Abdown == false) {
-        Ab.cloneNode().play()
-        Abdown = true
-        cells[5].style.backgroundColor = "rgb(211, 190, 164)";
-        blackKeys[3].style.backgroundColor = "rgb(50, 50, 50)";
-    }
-    else if (e.code == "KeyU" && Bbdown == false) {
-        Bb.cloneNode().play()
-        Bbdown = true
-        cells[6].style.backgroundColor = "rgb(211, 190, 164)";
-        blackKeys[4].style.backgroundColor = "rgb(50, 50, 50)";
-    }
-    else if (e.code == "KeyW" && Dbdown == false) {
-        Db.cloneNode().play()
-        Dbdown = true
-        cells[1].style.backgroundColor = "rgb(211, 190, 164)";
-        blackKeys[0].style.backgroundColor = "rgb(50, 50, 50)";
-    }
-    else if (e.code == "KeyE" && Ebdown == false) {
-        Eb.cloneNode().play()
-        Ebdown = true
-        cells[2].style.backgroundColor = "rgb(211, 190, 164)";
-        blackKeys[1].style.backgroundColor = "rgb(50, 50, 50)";
-    }
-    else if (e.code == "KeyT" && Gbdown == false) {
-        Gb.cloneNode().play()
-        Gbdown = true
-        cells[4].style.backgroundColor = "rgb(211, 190, 164)";
-        blackKeys[2].style.backgroundColor = "rgb(50, 50, 50)";
-    }
-  }, false);
+let whitePressed = "rgb(182, 182, 182)";
+let white = "rgb(255, 255, 255)";
 
-  window.addEventListener('keyup', function (e) {
-    if (e.code == "KeyH") {
-        Adown = false
-        cells[12].style.backgroundColor = "rgb(255, 228, 196)";
-        whiteKeys[5].style.backgroundColor = "rgb(255, 255, 255)";
-    }
-    else if (e.code == "KeyJ") {
-        Bdown = false
-        cells[13].style.backgroundColor = "rgb(255, 228, 196)";
-        whiteKeys[6].style.backgroundColor = "rgb(255, 255, 255)";
-    }
-    else if (e.code == "KeyA") {
-        Cdown = false
-        cells[7].style.backgroundColor = "rgb(255, 228, 196)";
-        whiteKeys[0].style.backgroundColor = "rgb(255, 255, 255)";
-    }
-    else if (e.code == "KeyS") {
-        Ddown = false
-        cells[8].style.backgroundColor = "rgb(255, 228, 196)";
-        whiteKeys[1].style.backgroundColor = "rgb(255, 255, 255)";
-    }
-    else if (e.code == "KeyD") {
-        Edown = false
-        cells[9].style.backgroundColor = "rgb(255, 228, 196)";
-        whiteKeys[2].style.backgroundColor = "rgb(255, 255, 255)";
-    }
-    else if (e.code == "KeyF") {
-        Fdown = false
-        cells[10].style.backgroundColor = "rgb(255, 228, 196)";
-        whiteKeys[3].style.backgroundColor = "rgb(255, 255, 255)";
-    }
-    else if (e.code == "KeyG") {
-        Gdown = false
-        cells[11].style.backgroundColor = "rgb(255, 228, 196)";
-        whiteKeys[4].style.backgroundColor = "rgb(255, 255, 255)";
-    }
+let blackPressed = "rgb(50, 50, 50)";
+let black = "rgb(0, 0, 0)";
 
-    else if (e.code == "KeyY") {
-        Abdown = false
-        cells[5].style.backgroundColor = "rgb(255, 228, 196)";
-        blackKeys[3].style.backgroundColor = "rgb(0, 0, 0)";
-    }
-    else if (e.code == "KeyU") {
-        Bbdown = false
-        cells[6].style.backgroundColor = "rgb(255, 228, 196)";
-        blackKeys[4].style.backgroundColor = "rgb(0, 0, 0)";
-    }
-    else if (e.code == "KeyW") {
-        Dbdown = false
-        cells[1].style.backgroundColor = "rgb(255, 228, 196)";
-        blackKeys[0].style.backgroundColor = "rgb(0, 0, 0)";
-    }
-    else if (e.code == "KeyE") {
-        Ebdown = false
-        cells[2].style.backgroundColor = "rgb(255, 228, 196)";
-        blackKeys[1].style.backgroundColor = "rgb(0, 0, 0)";
-    }
-    else if (e.code == "KeyT") {
-        Gbdown = false
-        cells[4].style.backgroundColor = "rgb(255, 228, 196)";
-        blackKeys[2].style.backgroundColor = "rgb(0, 0, 0)";
-    }
-  }, false);
+let downDetect = [false,false,false,false,false,false,false,false,false,false,false,false]
+let notes = [C,D,E,F,G,A,B,Db,Eb,Gb,Ab,Bb]
+let cellOrder = [7,8,9,10,11,12,13,1,2,4,5,6]
+let keyOrder = ["KeyA","KeyS","KeyD","KeyF","KeyG","KeyH","KeyJ","KeyW","KeyE","KeyT","KeyY","KeyU"]
 
-  for (let i = 0; i < 7; i++) {
-    whiteKeys[i].addEventListener("mousedown", () => {
-        if (whiteKeys[i].children[0].textContent == "A" && Adown == false) {
-            A.cloneNode().play()
-            Adown = true
-            cells[12].style.backgroundColor = "rgb(211, 190, 164)";
-            whiteKeys[5].style.backgroundColor = "rgb(182, 182, 182)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "B" && Bdown == false) {
-            B.cloneNode().play()
-            Bdown = true
-            cells[13].style.backgroundColor = "rgb(211, 190, 164)";
-            whiteKeys[6].style.backgroundColor = "rgb(182, 182, 182)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "C" && Cdown == false) {
-            C.cloneNode().play()
-            Cdown = true
-            cells[7].style.backgroundColor = "rgb(211, 190, 164)";
-            whiteKeys[0].style.backgroundColor = "rgb(182, 182, 182)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "D" && Ddown == false) {
-            D.cloneNode().play()
-            Ddown = true
-            cells[8].style.backgroundColor = "rgb(211, 190, 164)";
-            whiteKeys[1].style.backgroundColor = "rgb(182, 182, 182)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "E" && Edown == false) {
-            E.cloneNode().play()
-            Edown = true
-            cells[9].style.backgroundColor = "rgb(211, 190, 164)";
-            whiteKeys[2].style.backgroundColor = "rgb(182, 182, 182)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "F" && Fdown == false) {
-            F.cloneNode().play()
-            Fdown = true
-            cells[10].style.backgroundColor = "rgb(211, 190, 164)";
-            whiteKeys[3].style.backgroundColor = "rgb(182, 182, 182)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "G" && Gdown == false) {
-            G.cloneNode().play()
-            Gdown = true
-            cells[11].style.backgroundColor = "rgb(211, 190, 164)";
-            whiteKeys[4].style.backgroundColor = "rgb(182, 182, 182)";
+for (let i = 0; i < 12; i++) {
+    addListeners(i)
+    keyListeners(i)
+}
+
+function addListeners(index) {
+    keys[index].addEventListener("mousedown", () => {
+        if (downDetect[index] == false) {
+            notes[index].cloneNode().play();
+            downDetect[index] = true;
+            cells[cellOrder[index]].style.backgroundColor = cellPressed;
+            if (index < 7) {
+                keys[index].style.backgroundColor = whitePressed;
+            }
+            else {
+                keys[index].style.backgroundColor = blackPressed;
+            }
         }
     })
 
-    whiteKeys[i].addEventListener("mouseup", () => {
-        if (whiteKeys[i].children[0].textContent == "A") {
-            Adown = false;
-            cells[12].style.backgroundColor = "rgb(255, 228, 196)";
-            whiteKeys[5].style.backgroundColor = "rgb(255, 255, 255)";
+    keys[index].addEventListener("mouseup", () =>  {
+        downDetect[index] = false
+        cells[cellOrder[index]].style.backgroundColor = cellColor;
+        if (index < 7) {
+            keys[index].style.backgroundColor = white;
         }
-        else if (whiteKeys[i].children[0].textContent == "B") {
-            Bdown = false
-            cells[13].style.backgroundColor = "rgb(255, 228, 196)";
-            whiteKeys[6].style.backgroundColor = "rgb(255, 255, 255)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "C") {
-            Cdown = false
-            cells[7].style.backgroundColor = "rgb(255, 228, 196)";
-            whiteKeys[0].style.backgroundColor = "rgb(255, 255, 255)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "D") {
-            Ddown = false
-            cells[8].style.backgroundColor = "rgb(255, 228, 196)";
-            whiteKeys[1].style.backgroundColor = "rgb(255, 255, 255)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "E") {
-            Edown = false
-            cells[9].style.backgroundColor = "rgb(255, 228, 196)";
-            whiteKeys[2].style.backgroundColor = "rgb(255, 255, 255)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "F") {
-            Fdown = false
-            cells[10].style.backgroundColor = "rgb(255, 228, 196)";
-            whiteKeys[3].style.backgroundColor = "rgb(255, 255, 255)";
-        }
-        else if (whiteKeys[i].children[0].textContent == "G") {
-            Gdown = false
-            cells[11].style.backgroundColor = "rgb(255, 228, 196)";
-            whiteKeys[4].style.backgroundColor = "rgb(255, 255, 255)";
+        else {
+            keys[index].style.backgroundColor = black;
         }
     })
-  }
+}
 
-  for (let i = 0; i < 5; i++) {
-    blackKeys[i].addEventListener("mousedown", () => {
-        if (blackKeys[i].children[0].textContent == "G# A♭" && Abdown == false) {
-            Ab.cloneNode().play()
-            Abdown = true
-            cells[5].style.backgroundColor = "rgb(211, 190, 164)";
-            blackKeys[3].style.backgroundColor = "rgb(50, 50, 50)";
+function keyListeners(index) {
+    window.addEventListener('keydown', function (e) {
+        if (e.code == keyOrder[index]) {
+            notes[index].cloneNode().play()
+            downDetect[index] = true
+            cells[cellOrder[index]].style.backgroundColor = cellPressed;
+            if (index < 7) {
+                keys[index].style.backgroundColor = whitePressed;
+            }
+            else {
+                keys[index].style.backgroundColor = blackPressed;
+            }
         }
-        else if (blackKeys[i].children[0].textContent == "A# B♭" && Bbdown == false) {
-            Bb.cloneNode().play()
-            Bbdown = true
-            cells[6].style.backgroundColor = "rgb(211, 190, 164)";
-            blackKeys[4].style.backgroundColor = "rgb(50, 50, 50)";
-        }
-        else if (blackKeys[i].children[0].textContent == "C# D♭" && Dbdown == false) {
-            Db.cloneNode().play()
-            Dbdown = true
-            cells[1].style.backgroundColor = "rgb(211, 190, 164)";
-            blackKeys[0].style.backgroundColor = "rgb(50, 50, 50)";
-        }
-        else if (blackKeys[i].children[0].textContent == "D# E♭" && Ebdown == false) {
-            Eb.cloneNode().play()
-            Ebdown = true
-            cells[2].style.backgroundColor = "rgb(211, 190, 164)";
-            blackKeys[1].style.backgroundColor = "rgb(50, 50, 50)";
-        }
-        else if (blackKeys[i].children[0].textContent == "F# G♭" && Gbdown == false) {
-            Gb.cloneNode().play()
-            Gbdown = true
-            cells[4].style.backgroundColor = "rgb(211, 190, 164)";
-            blackKeys[2].style.backgroundColor = "rgb(50, 50, 50)";
-        }
-    })
+      }, false);
 
-    blackKeys[i].addEventListener("mouseup", () => {
-        if (blackKeys[i].children[0].textContent == "G# A♭") {
-            Abdown = false
-            cells[5].style.backgroundColor = "rgb(255, 228, 196)";
-            blackKeys[3].style.backgroundColor = "rgb(0, 0, 0)";
+      window.addEventListener('keyup', function (e) {
+        if (e.code == keyOrder[index]) {
+            downDetect[index] = false
+            cells[cellOrder[index]].style.backgroundColor = cellColor;
+            if (index < 7) {
+                keys[index].style.backgroundColor = white;
+            }
+            else {
+                keys[index].style.backgroundColor = black;
+            }
         }
-        else if (blackKeys[i].children[0].textContent == "A# B♭") {
-            Bbdown = false
-            cells[6].style.backgroundColor = "rgb(255, 228, 196)";
-            blackKeys[4].style.backgroundColor = "rgb(0, 0, 0)";
-        }
-        else if (blackKeys[i].children[0].textContent == "C# D♭") {
-            Dbdown = false
-            cells[1].style.backgroundColor = "rgb(255, 228, 196)";
-            blackKeys[0].style.backgroundColor = "rgb(0, 0, 0)";
-        }
-        else if (blackKeys[i].children[0].textContent == "D# E♭") {
-            Ebdown = false
-            cells[2].style.backgroundColor = "rgb(255, 228, 196)";
-            blackKeys[1].style.backgroundColor = "rgb(0, 0, 0)";
-        }
-        else if (blackKeys[i].children[0].textContent == "F# G♭") {
-            Gbdown = false
-            cells[4].style.backgroundColor = "rgb(255, 228, 196)";
-            blackKeys[2].style.backgroundColor = "rgb(0, 0, 0)";
-        }
-    })
+      }, false);
 }
