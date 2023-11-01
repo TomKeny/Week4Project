@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: url("images/Background.jpg");
 }
 
 p {
@@ -19,7 +20,7 @@ h1 {
     margin-right: auto;
     width:fit-content;
     padding: 1%;
-    background-color: rgb(238, 238, 238);
+    background-color: rgba(238, 238, 238, 0.575);
     border-radius: 10%;
 }
 
@@ -30,24 +31,78 @@ h3 {
     margin-top: 6%;
 }
 
+h4 {
+    font-size: 1.4em;
+    background-color: rgba(238, 238, 238, 0.486);
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+}
+
 #siteContainer {
     width: 65%;
     margin-left: auto;
     margin-right: auto;
     background-color:rgb(201, 201, 201);
     padding: 1%;
+    background-image: url("images/siteBackground.jpg");
 }
 
 #KeyboardContainer {
     display: flex;
     width: 90%;
-    background-color: rgb(250, 235, 215);
+    background-color: rgba(250, 235, 215, 0.466);
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 1%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
+}
+
+#pianoContainer {
+    display:flex;
+    width:50%;
+    background-color: rgb(65, 65, 65);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    padding:1%;
+    border-radius: 5px;
+}
+
+.white {
+    width: 14%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10%;
+    height: 30vh;
+    margin: 1%;
+}
+
+.white p {
+    top:80%;
+    left: 20%;
+}
+
+.black {
+    position:relative;
+    width:0;
+    height:0;
+}
+
+.inner {
+    position:absolute;
+    background-color: rgb(0, 0, 0);
+    left: -1.2vw;
+    height:18vh;
+    border-radius: 10%;
+}
+
+.inner p {
+    color: white;
+    font-size:2.2em;
+    margin: 3px;
 }
 
 .cell {
@@ -61,6 +116,7 @@ h3 {
 .halfcell {
     background-color: rgb(255, 228, 196);
     border-radius: 0.5%;
+    margin:0.5%;
     width: 7%;
     aspect-ratio: 2/1;
 }
