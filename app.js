@@ -26,11 +26,11 @@ let cellOrder = [7,8,9,10,11,12,13,1,2,4,5,6]
 let keyOrder = ["KeyA","KeyS","KeyD","KeyF","KeyG","KeyH","KeyJ","KeyW","KeyE","KeyT","KeyY","KeyU"]
 
 for (let i = 0; i < 12; i++) {
-    addListeners(i)
+    buttonListeners(i)
     keyListeners(i)
 }
 
-function addListeners(index) {
+function buttonListeners(index) {
     keys[index].addEventListener("mousedown", () => {
         if (downDetect[index] == false) {
             noteArray[notes[index]].cloneNode().play();
