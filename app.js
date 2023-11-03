@@ -59,7 +59,7 @@ function buttonListeners(index) {
 
 function keyListeners(index) {
     window.addEventListener('keydown', function (e) {
-        if (e.code == keyOrder[index]) {
+        if (e.code == keyOrder[index] && downDetect[index] == false) {
             noteArray[notes[index]].cloneNode().play()
             downDetect[index] = true
             cells[cellOrder[index]].style.backgroundColor = cellPressed;
